@@ -2,9 +2,9 @@ require 'formula'
 
 class Rivet < Formula
   homepage 'http://rivet.hepforge.org/'
-  #url 'http://www.hepforge.org/archive/rivet/Rivet-2.1.1.tar.gz'
+  #url 'http://www.hepforge.org/archive/rivet/Rivet-2.1.1.tar.gz'  #old version of rivet
   #sha1 '2fbd9c78130cae9af65c07d8116f56a9fb6dbe52'
-  url 'http://www.hepforge.org/archive/rivet/Rivet-2.1.2.tar.gz'
+  url 'http://www.hepforge.org/archive/rivet/Rivet-2.1.2.tar.gz'   #newest version 6/2/2014
   sha1 '616ada047ff36d628f51130dff59bd01f369fd60'
 
   head do
