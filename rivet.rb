@@ -2,8 +2,10 @@ require 'formula'
 
 class Rivet < Formula
   homepage 'http://rivet.hepforge.org/'
-  url 'http://www.hepforge.org/archive/rivet/Rivet-2.0.0.tar.gz'
-  sha1 '92ead69e98463254a4d035c0db38a5e488b63798'
+  #url 'http://www.hepforge.org/archive/rivet/Rivet-2.1.1.tar.gz'
+  #sha1 '2fbd9c78130cae9af65c07d8116f56a9fb6dbe52'
+  url 'http://www.hepforge.org/archive/rivet/Rivet-2.1.2.tar.gz'
+  sha1 '616ada047ff36d628f51130dff59bd01f369fd60'
 
   head do
     url 'http://rivet.hepforge.org/hg/rivet', :using => :hg, :branch => 'tip'
@@ -25,7 +27,7 @@ class Rivet < Formula
 
   def patches
     # Fix compilation bug, correct rivet-config for Mac
-    DATA
+    #DATA
   end unless build.head?
 
   def install
@@ -36,6 +38,7 @@ class Rivet < Formula
     ]
 
     system "autoreconf", "-i" if build.head?
+    system "export PATH=/usr/local/bin/:$PATH"
     system "./configure", *args
     system "make"
     system "make", "check" if build.with? 'check'
@@ -52,29 +55,3 @@ class Rivet < Formula
 end
 
 __END__
-diff --git a/bin/rivet-config.in b/bin/rivet-config.in
-index 5108b36..2cc4fcf 100644
---- a/bin/rivet-config.in
-+++ b/bin/rivet-config.in
-@@ -71,7 +71,7 @@ fi
- 
- tmp=$( echo "$*" | egrep -- '--\<ldflags\>')
- if test -n "$tmp"; then
--    OUT="$OUT -Wl,--no-as-needed"
-+    OUT="$OUT"
-     lrivet="@libdir@"
-     test -n "$lrivet" && OUT="$OUT -L${lrivet}"
-     lhepmc="@HEPMCLIBPATH@"
-diff --git a/include/Rivet/ProjectionHandler.hh b/include/Rivet/ProjectionHandler.hh
-index 2483a9a..7d42d60 100644
---- a/include/Rivet/ProjectionHandler.hh
-+++ b/include/Rivet/ProjectionHandler.hh
-@@ -49,7 +49,7 @@ namespace Rivet {
- 
-     /// @brief Typedef for the structure used to contain named projections for a
-     /// particular containing Analysis or Projection.
--    typedef map<const string, ProjHandle> NamedProjs;
-+    typedef map<string, ProjHandle> NamedProjs;
- 
-     /// Enum to specify depth of projection search.
-     enum ProjDepth { SHALLOW, DEEP };

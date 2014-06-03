@@ -2,9 +2,10 @@ require 'formula'
 
 class Yoda < Formula
   homepage 'http://yoda.hepforge.org/'
-  url 'http://www.hepforge.org/archive/yoda/YODA-1.0.4.tar.gz'
-  sha1 '8077b5de16e6198826014a9e01adc7cbb30df401'
-
+  url 'http://www.hepforge.org/archive/yoda/YODA-1.0.6.tar.gz'
+  sha1 'fbafd9a0702cbab5eea6bd9a326021f49ca0ace9'
+  #url 'http://www.hepforge.org/archive/yoda/YODA-1.0.4.tar.gz'
+  #sha1 '8077b5de16e6198826014a9e01adc7cbb30df401'
   head do
     url 'http://yoda.hepforge.org/hg/yoda', :using => :hg
 

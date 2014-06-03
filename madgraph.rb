@@ -4,6 +4,8 @@ class Madgraph < Formula
   homepage 'https://launchpad.net/madgraph5'
   url 'https://launchpad.net/madgraph5/trunk/1.5.0/+download/MadGraph5_v1.5.14.tar.gz'
   sha1 'a9409b96983d8d85c05a0cf6f8ac6cd165d58ba2'
+  #url 'https://launchpad.net/ma/+download/.tar.gz'
+  #sha1 'd38be7add55388215efc063713618d39288c8817'
 
   depends_on :fortran
   depends_on :python
